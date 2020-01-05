@@ -10,9 +10,9 @@
 172.16.13.13 node_name=k8s-node3
 
 [etcd]
-192.168.31.61 etcd_name=etcd-1
-192.168.31.62 etcd_name=etcd-2
-192.168.31.63 etcd_name=etcd-3
+192.168.0.11 etcd_name=etcd-1
+172.16.11.11 etcd_name=etcd-2
+172.16.12.11 etcd_name=etcd-3
 
 [lb]
 # 如果部署单Master，该项忽略

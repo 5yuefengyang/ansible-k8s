@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2564999-c16f-4108-9103-e476de413723" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/group_vars/all.yml" beforeDir="false" afterPath="$PROJECT_DIR$/group_vars/all.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/hosts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hosts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="255">
+              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -77,8 +76,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hosts" />
         <option value="$PROJECT_DIR$/group_vars/all.yml" />
+        <option value="$PROJECT_DIR$/hosts" />
       </list>
     </option>
   </component>
@@ -141,12 +140,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578257208700</updated>
-      <workItem from="1578257211411" duration="2536000" />
+      <workItem from="1578257211411" duration="2848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2536000" />
+    <option name="totallyTimeSpent" value="2848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1333" extended-state="0" />
@@ -221,8 +220,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hosts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="255">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
