@@ -3,9 +3,10 @@
 # 默认Naster节点也部署Node组件
 192.168.0.11 node_name=k8s-master1-x1
 192.168.0.12 node_name=k8s-master2-x2
+192.168.0.13 node_name=k8s-master3-x3
 
 [node]
-192.168.0.13 node_name=k8s-node1-x3
+172.18.27.13 node_name=k8s-node1-lb3
 
 [etcd]
 192.168.0.11 etcd_name=etcd-1
