@@ -26,7 +26,7 @@
   template: src=hosts.j2 dest=/etc/hosts 
 
 #- name: 同步系统时间
-#  yum: name=ntpdate state=present
+  yum: name=ntpdate state=present
 #- name: 同步系统时间
-#  shell: ntpdate time.windows.com
+  shell: ntpdate time.windows.com
 
