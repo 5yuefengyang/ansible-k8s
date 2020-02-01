@@ -22,7 +22,7 @@ KUBE_APISERVER_OPTS="--logtostderr=false \
 --etcd-cafile={{ k8s_work_dir }}/ssl/etcd/ca.pem \
 --etcd-certfile={{ k8s_work_dir }}/ssl/etcd/server.pem \
 --etcd-keyfile={{ k8s_work_dir }}/ssl/etcd/server-key.pem \
---requestheader-client-ca-file={{ k8s_work_dir }}ssl/ca.pem \
+--requestheader-client-ca-file={{ k8s_work_dir }}/ssl/ca.pem \
 --proxy-client-cert-file={{ k8s_work_dir }}/ssl/server.pem \
 --proxy-client-key-file={{ k8s_work_dir }}/ssl/server-key.pem \
 --requestheader-allowed-names=kubernetes \
