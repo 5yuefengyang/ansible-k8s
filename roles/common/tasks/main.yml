@@ -30,3 +30,5 @@
 - name: 同步系统时间
   shell: ntpdate time.windows.com
 
+- name: 安装nfs-utils
+  yum: name=nfs-utils

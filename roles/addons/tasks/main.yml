@@ -8,7 +8,7 @@
   with_fileglob:
     - "*.yaml"
 
-- name: 部署Flannel,Dashboard,CoreDNS,Ingress
+- name: 部署Flannel,Dashboard,CoreDNS,Ingress,Kuboard
   ignore_errors: yes
   shell: |
          cd {{ tmp_dir }}
@@ -44,3 +44,28 @@
 - name: Kubernetes Dashboard登录信息
   debug: var=ui.stdout_lines
 
+- name: 获取Kuboard访客令牌
+  ignore_errors: yes
+  shell: |
+    web='http://NodeIP:32567'
+    token=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep kuboard-viewer | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d)
+    fast='http://NodeIP:32567/#/dashboard?k8sToken='
+    echo "访问地址--->$web"
+    echo "访客令牌内容--->$token"
+    echo "直接访问--->$fast$token"
+  register: kuboardview
+- name: Kuboard访客登录信息
+  debug: var=kuboardview.stdout_lines
+
+- name: 获取Kuboard管理员令牌
+  ignore_errors: yes
+  shell: |
+    web='http://NodeIP:32567'
+    token=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d)
+    fast='http://NodeIP:32567/#/dashboard?k8sToken='
+    echo "访问地址--->$web"
+    echo "管理员令牌内容--->$token"
+    echo "直接访问--->$fast$token"
+  register: kuboardmaster
+- name: Kuboard管理员登录信息
+  debug: var=kuboardmaster.stdout_lines
