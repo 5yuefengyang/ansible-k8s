@@ -56,7 +56,7 @@
 - name: Kuboard访客登录信息
   debug: var=ui.stdout_lines
 
-- name: 获取Kuboard管理员令牌
+- name: 获取Kuboard管理员令牌kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d
   ignore_errors: yes
   shell: |
          web='http://NodeIP:32567/#/dashboard?k8sToken='
