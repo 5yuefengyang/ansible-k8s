@@ -26,35 +26,6 @@
   register: getall
 - debug: var=getall.stdout_lines
 
-- name: 创建Dashboard管理员令牌
-  ignore_errors: yes 
-  shell: |
-         kubectl create serviceaccount dashboard-admin -n kubernetes-dashboard
-         kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin
-
-- name: 获取Dashboard管理员令牌
-  ignore_errors: yes
-  shell: |
-         web='https://NodeIP:30001'
-         token=$(kubectl describe secrets -n kubernetes-dashboard \
-         $(kubectl get secret -n kubernetes-dashboard | awk '/dashboard-admin/{print $1}') |awk '/^token/{print $2}')
-         echo "访问地址--->$web"
-         echo "令牌内容--->$token" 
-  register: ui2
-- name: Kubernetes Dashboard登录信息
-  debug: var=ui2.stdout_lines
-
-- name: 获取Kuboard访客令牌
-  ignore_errors: yes
-  shell: |
-         web='http://NodeIP:32567'
-         token=$(kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-viewer | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d)
-         echo "访问地址--->$web"
-         echo "访客令牌内容--->$token"
-         echo "直接访问--->http://NodeIP:32567/#/dashboard?k8sToken="
-  register: ui3
-- name: Kuboard访客登录信息
-  debug: var=ui3.stdout_lines
 
 - name: 获取Kuboard管理员令牌kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d
   ignore_errors: yes
@@ -63,6 +34,6 @@
          token=$(kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d)
          echo "访问地址--->$web"
          echo "管理员令牌内容--->$token"
-  register: ui4
+  register: ui
 - name: Kuboard管理员登录信息
-  debug: var=ui4.stdout_lines
+  debug: var=ui.stdout_lines
