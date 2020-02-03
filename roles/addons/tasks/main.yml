@@ -40,9 +40,9 @@
          $(kubectl get secret -n kubernetes-dashboard | awk '/dashboard-admin/{print $1}') |awk '/^token/{print $2}')
          echo "访问地址--->$web"
          echo "令牌内容--->$token" 
-  register: ui
+  register: ui2
 - name: Kubernetes Dashboard登录信息
-  debug: var=ui.stdout_lines
+  debug: var=ui2.stdout_lines
 
 - name: 获取Kuboard访客令牌
   ignore_errors: yes
@@ -52,9 +52,9 @@
          echo "访问地址--->$web"
          echo "访客令牌内容--->$token"
          echo "直接访问--->http://NodeIP:32567/#/dashboard?k8sToken="
-  register: ui
+  register: ui3
 - name: Kuboard访客登录信息
-  debug: var=ui.stdout_lines
+  debug: var=ui3.stdout_lines
 
 - name: 获取Kuboard管理员令牌kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d
   ignore_errors: yes
@@ -63,6 +63,6 @@
          token=$(kubectl -n kube-system get secret $(kubectl get secret -n kube-system | grep kuboard-user | awk '{print $1}') -o go-template='{{.data.token}}' | base64 -d)
          echo "访问地址--->$web"
          echo "管理员令牌内容--->$token"
-  register: ui
+  register: ui4
 - name: Kuboard管理员登录信息
-  debug: var=ui.stdout_lines
+  debug: var=ui4.stdout_lines
